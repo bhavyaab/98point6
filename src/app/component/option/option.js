@@ -14,12 +14,12 @@ export function Option(){
         <div className="option">
             <li>Choose turn</li>
             <div className="optionContainer">
-                <div className={player == 'me'? 'focus':'selectionBox'} 
+                <div className={player == 'me'? 'focus':'selectionBox person'} 
                      onClick={() => dispatch(firstTurn('me'))}>
-                    <IoPersonSharp className={"iconOption person"} />
+                    <IoPersonSharp className={"iconOption"} />
                     <li>I go first</li>
                 </div>
-                <div className={player == 'robot'? 'focus':'selectionBox'} 
+                <div className={player == 'robot'? 'focus':'selectionBox robot'} 
                      onClick={() => dispatch(firstTurn('robot'))}>
                     <RiRobotFill className="iconOption" />
                     <li>Robot go first</li>

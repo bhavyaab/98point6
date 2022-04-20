@@ -15,16 +15,15 @@
     .focus { 
         width: 5em;
         height: 4em;
-        color: $orange;
+        color: $pink;
         border-radius: 0.5vw;
         display: inline-block;
-        border: 0.4vw solid $orange;
+        border: 0.4vw solid $pink;
         margin: 1em 5vw;
         .person{
-            color: $orange;
+            color: $pink;
         }
         li {
-            color: $orange;
             font-size: 0.45em;
             padding-top: 0.25em;
             font-weight: bold;
@@ -37,8 +36,8 @@
         display: inline-block;
         border: 0.4vw solid $black;
         margin: 1em 5vw;
+        color: $green;
         li {
-            color: $black;
             font-size: 0.45em;
             padding-top: 0.25em;
         }
@@ -46,6 +45,9 @@
     }
     .optionContainer {
         margin-bottom: 1em;
+    }
+    .robot {
+        color: $green;
     }
     .person{
          color: $pink;
