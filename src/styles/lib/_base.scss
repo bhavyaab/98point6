@@ -1,0 +1,26 @@
+@import './var';
+html {
+    font-size: 1.5em;
+    text-align: center;
+    background-color: $black;
+}
+body {
+    color: $black;
+    font-size: 1.25em;
+    font-family: $ff-primary;
+    width: 70vw;
+    height: 80vh;
+    margin-top: 10vh;
+    margin-left: 15%;
+    background-color: $white;
+}
+
+a {
+    color: $black;
+}
+
+.defaultButton{
+    background-color: orange;
+    padding: 1em 2em;
+    border-radius: 0.25em;
+}
