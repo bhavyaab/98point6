@@ -1,0 +1,13 @@
+@import '../../../styles/lib/var';
+.dots {
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+}
+
+.pink {
+    background-color: $pink;
+}
+.green {
+    background-color: $green;
+}

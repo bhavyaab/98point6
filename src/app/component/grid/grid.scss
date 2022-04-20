@@ -1,0 +1,25 @@
+@import '../../../styles/lib/var';
+
+
+.grid {
+
+  width: 9em;
+  height: 9em;
+  margin-left: calc(50% - 4.5em);
+
+}
+.column{
+    display: inline-block;
+}
+.column:hover {
+    background-color: $teal;
+}
+.cell{
+    width: 2em;
+    height: 2em;      
+    border: 0.1vw solid $black;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
