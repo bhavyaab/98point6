@@ -1,5 +1,5 @@
 import React from 'react';
-import  FourDots from './features/fourDots/fourDots';
+import  FourDots from './component/fourDots/fourDots';
 import { Welcome } from './component/welcome/welcome';
 import { Option } from './component/option/option';
 import {

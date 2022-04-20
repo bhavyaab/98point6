@@ -20,7 +20,10 @@ a {
 }
 
 .defaultButton{
-    background-color: orange;
-    padding: 1em 2em;
+    background-color: $orange;
+    padding: 0.5em 2em;
     border-radius: 0.25em;
+}
+.defaultButton:hover{
+    background-color: $pink;
 }
