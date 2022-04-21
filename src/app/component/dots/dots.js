@@ -12,3 +12,6 @@ export function Dots (props){
     dotColor = player? (player === 'me')? 'pink':'green' : 'white';
     return <div className={"dots " + dotColor}></div>
 } 
+
+
+

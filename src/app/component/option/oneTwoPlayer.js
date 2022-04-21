@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { playSingle, isSinglePlayer } from '../fourDots/fourDotsSlice';
+import { playSingle, isSinglePlayer } from '../../../store/gameSlice';
 import './option.scss';
 import { BsFillPeopleFill } from 'react-icons/bs';
 import { IoPersonSharp } from 'react-icons/io5'

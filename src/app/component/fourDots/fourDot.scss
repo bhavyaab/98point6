@@ -1,0 +1,14 @@
+.fourDot{
+    position: relative;
+}
+.gameOver{
+    width: 10em;
+    height: 8.25em;
+    margin-left: 2em;
+    position: absolute;
+    display: block;
+    z-index: 10;
+}
+.playing{
+    display: none;
+}

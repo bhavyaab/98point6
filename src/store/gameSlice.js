@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { robotNextTurn } from '../app/component/fourDots/fourDotsAPI';
+import { updateGameState } from './gameState';
 
 import { initialState } from './initialState';
 
@@ -33,24 +34,34 @@ import { initialState } from './initialState';
          getAvailableColumn : (state, action) => {
             var availableSpace = state.column[action.payload];
             if(availableSpace > -1) {
+                state.gameState = 'playing';
                 state.column[action.payload] = availableSpace - 1; //update available column
                 state.gridState[action.payload][availableSpace]['player'] = state.player; // update dot color
                 state.currState = [...state.currState, action.payload]; // update current player
-                //update player
-                //if single player game will be between me vs player2
-                //if multiplayer then game will be between me vs robot
-                if(state.player === 'me'){
-                    var nextPlayer = state.singlePlayer? 'robot':'Player 2';
-                    state.player = nextPlayer;
+                //calculate game state
+                  state = updateGameState(state, action.payload, state.player, availableSpace);
+                  
+                  //switch player if game is in playing state
+                  //if single player game will be between me vs player2
+                  //if multiplayer then game will be between me vs robot
+                  if(state.gameState === 'playing'){
+                    if(state.player === 'me'){
+                      var nextPlayer = state.singlePlayer? 'robot':'Player 2';
+                      state.player = nextPlayer;
+                  } else {
+                      state.player = 'me'
+                  }
+                  }
                 } else {
-                    state.player = 'me'
+                  state.gameState = 'invalid move';
+                  return state;
                 }
-
-            } else {
-                state.errorState = 'Not a valid move!';
-            }
-             console.log('state == ', state.column);
              return state;
+          },
+          reStartGame: (state, action) => {
+            state = {...initialState};
+            state.player = action.payload;
+            return state;
           },
           // when player click on column it will put a disc into that column if valid
         updateMatrix: (state, action) => {
@@ -79,8 +90,12 @@ export const getColumn = (state) => state.gameState.column;
 export const selectPlayer = (state) => state.gameState.player;
 export const getCurrState = (state) => state.gameState.currState;
 export const isSinglePlayer = (state) => state.gameState.singlePlayer;
-export const getGridState = (state) => state.gameState.gridState
+export const getGridState = (state) => state.gameState.gridState;
+export const getGameState = (state) => state.gameState.gameState;
+export const getErrorState = (state) => state.gameState.errorState;
+export const getWinner = (state) => state.gameState.winner;
+export const getWinnerIndexes = (state) => state.gameState.winnerIndexes;
   
-export const { firstTurn, playSingle, updateMatrix, getAvailableColumn } = fourDotSlice.actions;
+export const { firstTurn, playSingle, updateMatrix, getAvailableColumn, reStartGame } = fourDotSlice.actions;
 
 export default fourDotSlice.reducer;
