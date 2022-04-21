@@ -38,8 +38,8 @@ export function updateGameState(state, currRow, player, currColumn){
    }
 }
 //invalide move 
-export function validMove(column){
-
+export function ifRobotTurn(player){
+    return ('player' === 'robot') 
 }
 //game Draw no one wins
 export function gameDraw(column){

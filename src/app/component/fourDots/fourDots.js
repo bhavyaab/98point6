@@ -13,7 +13,7 @@ export default function FourDots() {
     <div className='fourDot'>
         <h1>Four Dots</h1>
         <li>current state of application :{JSON.stringify(useSelector(getCurrState))}</li>
-        <button onClick={() => dispatch(fetchRobotAction(currStateOfGame))}>next turn </button>
+        <button onClick={() => dispatch(fetchRobotAction(currStateOfGame, currPlayer))}>next turn </button>
         <div className={((gameCurrState !== 'playing') && (gameCurrState !== 'invalid move') )? 'gameOver':'playing'}></div>
         <Grid ></Grid>
         {(gameCurrState === 'draw') && <li className='marginBottom'>Game Draw!</li>}
