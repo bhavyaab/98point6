@@ -3,7 +3,7 @@ import './option.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { firstTurn, selectPlayer } from '../../../store/gameSlice';
+import { firstTurn, selectPlayer, reStartGame } from '../../../store/gameSlice';
 import { RiRobotFill } from 'react-icons/ri';
 import { IoPersonSharp } from 'react-icons/io5'
 
@@ -26,8 +26,12 @@ export function Option(){
                     <li>Robot go first</li>
                 </div>
             </div>
-            
-            <Link className="defaultButton link" to="/fourDot">Start</Link>
+            <li className="marginBottom">
+                <Link className="defaultButton" to="/fourDot">Start</Link>
+            </li>
+            <li className="marginTop">
+                <Link to="/" onClick={() => dispatch(reStartGame(player))} className='defaultButton link'>Go back</Link>
+            </li>
         </div>
     )
 }

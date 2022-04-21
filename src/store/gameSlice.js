@@ -21,6 +21,7 @@ export const fetchRobotAction = createAsyncThunk(
     reducers: {
        //choose if it is single player or multiple player
        playSingle: (state, action) => {
+        //  state = {...initialState};
          state.singlePlayer = action.payload;
        },
         //choose turn for player between player and robot
@@ -46,9 +47,10 @@ export const fetchRobotAction = createAsyncThunk(
                   if(state.gameState === 'playing'){
                     if(state.player === 'me'){
                       var nextPlayer = state.singlePlayer? 'robot':'Player 2';
-                      state.player = nextPlayer;} else {
+                      state.player = nextPlayer;
+                    } else {
                       state.player = 'me'
-                  }
+                    }
                   }
                 } else {
                   state.gameState = 'invalid move';
@@ -72,7 +74,7 @@ export const fetchRobotAction = createAsyncThunk(
         .addCase(fetchRobotAction.fulfilled, (state, action) => {
             state.robotStatus = 'idle';
             var getRototColumn = action.payload[action.payload.length - 1];
-            return gameSlice.caseReducers.getAvailableColumn(state, {payload:getRototColumn});                        
+            gameSlice.caseReducers.getAvailableColumn(state, {payload:getRototColumn});
           })
           .addCase(fetchRobotAction.rejected, (state, action) => {
             state.robotStatus = 'error';

@@ -21,8 +21,13 @@ a {
 
 .defaultButton{
     background-color: $orange;
-    padding: 0.5em 2em;
+    padding: 0.25em 2em;
+    font-size: 0.8em;
     border-radius: 0.25em;
+    font-family: $ff-primary;
+}
+.btn {    
+    padding: 0.5em 2em;
 }
 .defaultButton:hover{
     background-color: $pink;
@@ -30,4 +35,10 @@ a {
 
 .marginBottom {
     margin-bottom: 1em;
+}
+.marginBottom2 {
+    margin-bottom: 3em;
+}
+.marginTop{
+    margin-top: 2em;
 }
