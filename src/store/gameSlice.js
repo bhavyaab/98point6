@@ -58,8 +58,10 @@ export const fetchRobotAction = createAsyncThunk(
                 return state;
           },
           reStartGame: (state, action) => {
+            var singlePlayer = state.playSingle;
             state = {...initialState};
             state.player = action.payload;
+            state.playSingle = singlePlayer;
             return state;
           }
       },
