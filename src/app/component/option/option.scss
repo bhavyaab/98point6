@@ -2,28 +2,54 @@
 
 .option{
     li:first-child {
-        padding-top: 5em;
+        padding-top: 2em;
     }
-    .choose:hover{
+    .selectionBox:hover, focus:hover{
         cursor: pointer;
+        color: $orange;
+        border-color: $orange;
+        .person, li{
+            color: $orange;
+        }
     }
-     .choose{
+    .focus { 
         width: 5em;
         height: 4em;
+        color: $pink;
+        border-radius: 0.5vw;
+        display: inline-block;
+        border: 0.4vw solid $pink;
         margin: 1em 5vw;
-        color: $green;
+        .person{
+            color: $pink;
+        }
+        li {
+            font-size: 0.45em;
+            padding-top: 0.25em;
+            font-weight: bold;
+        }
+    }
+    .selectionBox{
+        width: 5em;
+        height: 4em;
         border-radius: 0.5vw;
         display: inline-block;
         border: 0.4vw solid $black;
-        
-
+        margin: 1em 5vw;
+        color: $green;
         li {
-            color: $black;
             font-size: 0.45em;
             padding-top: 0.25em;
         }
-     }
-     .person{
+
+    }
+    .optionContainer {
+        margin-bottom: 1em;
+    }
+    .robot {
+        color: $green;
+    }
+    .person{
          color: $pink;
      }
      .iconOption{
