@@ -11,21 +11,21 @@ export default function FourDots() {
     let winner = useSelector(getWinner);
     const dispatch = useDispatch();
     
-    const robotAction = async () => {
-        if(currPlayer === 'robot') { 
-            console.log('effect triggered')                
-            await new Promise(resolve => setTimeout(resolve, 1000)); 
-            dispatch(fetchRobotAction(currStateOfGame));
-        }
-    }
     useEffect(() => {
+        const robotAction = async () => {
+            if(currPlayer === 'robot') {                
+                await new Promise(resolve => setTimeout(resolve, 1000)); 
+                dispatch(fetchRobotAction(currStateOfGame));
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
         robotAction();
      }, [currPlayer]);
     return (
     <div className='fourDot'>
         <h1>Four Dots</h1>
         <li>current state of application :{JSON.stringify(useSelector(getCurrState))}</li>
-        <button onClick={() => dispatch(fetchRobotAction(currStateOfGame))}>next turn </button>
+        {/* <button onClick={() => dispatch(fetchRobotAction(currStateOfGame))}>next turn </button> */}
         <div className={(((gameCurrState !== 'playing') && (gameCurrState !== 'invalid move')) || (currPlayer === 'robot'))? 'gameOver':'playing'}></div>
         <Grid ></Grid>
         {(gameCurrState === 'draw') && <li className='marginBottom'>Game Draw!</li>}
