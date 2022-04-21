@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './fourDot.scss';
 import { getCurrState, selectPlayer, fetchRobotAction , getGameState, reStartGame, getWinner} from '../../../store/gameSlice';
@@ -9,12 +9,18 @@ export default function FourDots() {
     let currPlayer = useSelector(selectPlayer);
     let winner = useSelector(getWinner);
     const dispatch = useDispatch();
+    useEffect(() => {
+        const robotAction = () => {
+            if(currPlayer === 'robot') dispatch(fetchRobotAction(currStateOfGame));
+        }
+        robotAction();
+     }, [currPlayer, dispatch, currStateOfGame]);
     return (
     <div className='fourDot'>
         <h1>Four Dots</h1>
         <li>current state of application :{JSON.stringify(useSelector(getCurrState))}</li>
-        <button onClick={() => dispatch(fetchRobotAction(currStateOfGame, currPlayer))}>next turn </button>
-        <div className={((gameCurrState !== 'playing') && (gameCurrState !== 'invalid move') )? 'gameOver':'playing'}></div>
+        <button onClick={() => dispatch(fetchRobotAction(currStateOfGame))}>next turn </button>
+        <div className={(((gameCurrState !== 'playing') && (gameCurrState !== 'invalid move')) || (currPlayer === 'robot'))? 'gameOver':'playing'}></div>
         <Grid ></Grid>
         {(gameCurrState === 'draw') && <li className='marginBottom'>Game Draw!</li>}
         {(gameCurrState === 'invalid move') && <li className='marginBottom'>Invalid move!</li>}

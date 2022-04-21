@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { robotNextTurn } from '../app/component/fourDots/fourDotsAPI';
 import { updateGameState } from './gameState';
-import { useDispatch } from 'react-redux';
 
 import { initialState } from './initialState';
 
@@ -53,7 +52,6 @@ export const fetchRobotAction = createAsyncThunk(
                   }
                 } else {
                   state.gameState = 'invalid move';
-                  return state;
                 }
                 return state;
           },

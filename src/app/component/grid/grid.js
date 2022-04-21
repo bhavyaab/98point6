@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './grid.scss';
 
-import { getAvailableColumn, getWinnerIndexes, selectPlayer, fetchRobotAction, getCurrState } from '../../../store/gameSlice';
+import { getAvailableColumn, getWinnerIndexes } from '../../../store/gameSlice';
 import {Dots} from '../dots/dots';
 
 //draw the game matrix and insert the discs
@@ -10,11 +10,6 @@ export function Grid(){
     var dispatch = useDispatch();
     var matrix = [[0,1,2,3],[0,1,2,3],[0,1,2,3],[0,1,2,3]];
     var winnerIndex = useSelector(getWinnerIndexes);
-    var currentState = useSelector(getCurrState);
-    var currPlayer = useSelector(selectPlayer);
-    // if(currPlayer === 'robot') {
-    //     return dispatch(fetchRobotAction(currentState));
-    // }
     return (
         <div className="grid">
             {matrix.map((column, index) => {
