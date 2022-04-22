@@ -19,6 +19,7 @@
         border-radius: 0.5vw;
         display: inline-block;
         border: 0.4vw solid $pink;
+        // background-color: $pink;
         margin: 1em 5vw;
         .person{
             color: $pink;
@@ -50,9 +51,27 @@
         color: $green;
     }
     .person{
-         color: $pink;
+         color: $teal;
      }
      .iconOption{
          font-size: 4em;
      }
+}
+
+@media only screen and (max-width: 600px) {
+    .option{
+        .selectionBox, .focus {
+            width: 4em;
+        }
+        .iconOption{
+         font-size: 3em;
+     }
+    }
+
+    .marginTop{
+        margin-top: 1em;
+    }
+    .marginBottom{
+        margin-bottom: 0.5em;
+    }
 }

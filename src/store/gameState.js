@@ -1,5 +1,6 @@
-export function updateGameState(state, currRow, player, currColumn){
+export function updateGameState(state, currRow, currColumn){
     var gameCurrState = state.gameState;
+    var player = state.player;
     var gridState = state.gridState;
    //win row
     if(winByRow(gridState, player, currRow)) gameCurrState = 'rowWinner';
@@ -37,10 +38,6 @@ export function updateGameState(state, currRow, player, currColumn){
     default : return state;
    }
 }
-//invalide move 
-export function ifRobotTurn(player){
-    return ('player' === 'robot') 
-}
 //game Draw no one wins
 export function gameDraw(column){
     for(var i = 0; i < column.length; i++){
@@ -52,29 +49,29 @@ export function gameDraw(column){
 export function winByRow(gridState, player, row){
     var currRow = gridState[row];
 
-    return (player === currRow[0]['player'] 
-        && player === currRow[1]['player']
-        && player === currRow[2]['player']
-        && player === currRow[3]['player']);
+    return (player === currRow[0] 
+        && player === currRow[1]
+        && player === currRow[2]
+        && player === currRow[3]);
 }
 
 function winByColumn(gridState, player, column){
-    return (player === gridState[0][column]['player'] 
-        && player === gridState[1][column]['player']
-        && player === gridState[2][column]['player']
-        && player === gridState[3][column]['player']);
+    return (player === gridState[0][column] 
+        && player === gridState[1][column]
+        && player === gridState[2][column]
+        && player === gridState[3][column]);
 }
 
 function winLeftDia(gridState, player){
-    return (player === gridState[0][3]['player'] 
-        && player === gridState[1][2]['player']
-        && player === gridState[2][1]['player']
-        && player === gridState[3][0]['player']);
+    return (player === gridState[0][3] 
+        && player === gridState[1][2]
+        && player === gridState[2][1]
+        && player === gridState[3][0]);
 }
 
 function winRightDia(gridState, player){
-    return (player === gridState[0][0]['player'] 
-        && player === gridState[1][1]['player']
-        && player === gridState[2][2]['player']
-        && player === gridState[3][3]['player']);
+    return (player === gridState[0][0] 
+        && player === gridState[1][1]
+        && player === gridState[2][2]
+        && player === gridState[3][3]);
 }
