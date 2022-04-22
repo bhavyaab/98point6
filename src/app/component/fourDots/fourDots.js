@@ -21,7 +21,7 @@ export default function FourDots() {
     return (
     <div className='fourDot'>
         <h1>Four Dots</h1>
-        <div className={(currPlayer === 'robot')? 'gameOver':'playing'}></div>
+        <div className={((currPlayer === 'robot') || (gameCurrState !== 'playing') || (gameCurrState !== 'invalid move') )? 'gameOver':'playing'}></div>
         <Grid ></Grid>
         {(gameCurrState === 'draw') && <li className='marginBottom'>Game Draw!</li>}
         {(gameCurrState === 'invalid move') && <li className='marginBottom'>Invalid move!</li>}
