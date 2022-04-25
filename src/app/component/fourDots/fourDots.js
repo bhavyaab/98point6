@@ -11,7 +11,7 @@ export default function FourDots() {
     let winner = useSelector(getWinner);
     let singlePlayer = useSelector(isSinglePlayer);
     const dispatch = useDispatch();
-    
+    let freezPlayer = (gameCurrState !== 'playing') && (gameCurrState !== 'invalid move')
     useEffect(() => {
         const actionDispatch = async () => {
             if(currPlayer === 'robot')  dispatch(fetchRobotAction(matrix));
@@ -21,7 +21,7 @@ export default function FourDots() {
     return (
     <div className='fourDot'>
         <h1>Four Dots</h1>
-        <div className={((currPlayer === 'robot') || (gameCurrState !== 'playing') || (gameCurrState !== 'invalid move') )? 'gameOver':'playing'}></div>
+        <div className={freezPlayer? 'gameOver':'playing'}></div>
         <Grid ></Grid>
         {(gameCurrState === 'draw') && <li className='marginBottom'>Game Draw!</li>}
         {(gameCurrState === 'invalid move') && <li className='marginBottom'>Invalid move!</li>}
