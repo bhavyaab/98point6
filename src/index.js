@@ -4,7 +4,6 @@ import './styles/main.scss';
 import App from './app/App';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
 
 function AppWithCallbackAfterRender() {
   return <React.StrictMode>
@@ -16,5 +15,3 @@ function AppWithCallbackAfterRender() {
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(<AppWithCallbackAfterRender />);
-
-serviceWorker.unregister();
