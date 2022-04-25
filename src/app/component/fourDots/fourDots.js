@@ -20,7 +20,7 @@ export default function FourDots() {
             }
         }
         robotAction();
-     }, [currPlayer]);
+     }, [currPlayer, dispatch, currStateOfGame]);
     return (
     <div className='fourDot'>
         <h1>Four Dots</h1>
