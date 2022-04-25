@@ -7,7 +7,7 @@ import { getGridState } from "../../../store/gameSlice";
 export function Dots (props){
     var {x ,y} = props
     var dotColor;
-    var player = useSelector(getGridState)[x][y]['player'];  
+    var player = useSelector(getGridState)[x][y];  
       
     dotColor = player? (player === 'me')? 'pink':'green' : 'white';
     return <div className={"dots " + dotColor}></div>

@@ -6,19 +6,19 @@
     }
     .selectionBox:hover, focus:hover{
         cursor: pointer;
-        color: $orange;
-        border-color: $orange;
+        color: $lightOrange;
+        border-color: $lightOrange;
         .person, li{
-            color: $orange;
+            color: $lightOrange;
         }
     }
     .focus { 
         width: 5em;
         height: 4em;
-        color: $pink;
+        color: $lightOrange;
         border-radius: 0.5vw;
         display: inline-block;
-        border: 0.4vw solid $pink;
+        border: 0.4vw solid $lightOrange;
         margin: 1em 5vw;
         .person{
             color: $pink;
@@ -50,9 +50,27 @@
         color: $green;
     }
     .person{
-         color: $pink;
+         color: $teal;
      }
      .iconOption{
          font-size: 4em;
      }
+}
+
+@media only screen and (max-width: 600px) {
+    .option{
+        .selectionBox, .focus {
+            width: 4em;
+        }
+        .iconOption{
+         font-size: 3em;
+     }
+    }
+
+    .marginTop{
+        margin-top: 1em;
+    }
+    .marginBottom{
+        margin-bottom: 0.5em;
+    }
 }
